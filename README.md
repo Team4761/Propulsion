@@ -99,7 +99,7 @@ Drop-in except for the package name (`frc.team4761.propulsion.motors`) and `Smar
 
 ## Releasing a new version
 
-The vendordep currently pins commit `10b6aed7cd` (JitPack builds any commit hash). Once the code
+The vendordep currently pins commit `4f390da501` (JitPack builds any commit hash). Once the code
 has been reviewed, cut a real release:
 
 

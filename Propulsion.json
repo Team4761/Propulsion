@@ -1,7 +1,7 @@
 {
     "fileName": "Propulsion.json",
     "name": "Propulsion",
-    "version": "0.1.0-10b6aed7cd",
+    "version": "0.1.0-4f390da501",
     "frcYear": "2026",
     "uuid": "0ccd4541-e74f-4aa8-a538-0bf5d875ffd1",
     "mavenUrls": [
@@ -12,7 +12,7 @@
         {
             "groupId": "com.github.Team4761",
             "artifactId": "Propulsion",
-            "version": "10b6aed7cd"
+            "version": "4f390da501"
         }
     ],
     "jniDependencies": [],
