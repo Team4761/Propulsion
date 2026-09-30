@@ -1,0 +1,12 @@
+.gradle/
+build/
+bin/
+out/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/*
+!.vscode/settings.json
+.DS_Store

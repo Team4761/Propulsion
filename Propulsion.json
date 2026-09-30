@@ -1,0 +1,20 @@
+{
+    "fileName": "Propulsion.json",
+    "name": "Propulsion",
+    "version": "0.1.0",
+    "frcYear": "2026",
+    "uuid": "0ccd4541-e74f-4aa8-a538-0bf5d875ffd1",
+    "mavenUrls": [
+        "https://jitpack.io"
+    ],
+    "jsonUrl": "https://raw.githubusercontent.com/Team4761/Propulsion/main/Propulsion.json",
+    "javaDependencies": [
+        {
+            "groupId": "com.github.Team4761",
+            "artifactId": "Propulsion",
+            "version": "v0.1.0"
+        }
+    ],
+    "jniDependencies": [],
+    "cppDependencies": []
+}

@@ -1,0 +1,61 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'com.github.Team4761'
+version = project.findProperty('version') != 'unspecified' ? project.version : '0.1.0-SNAPSHOT'
+
+// Keep these in sync with the season's GradleRIO / vendordep versions.
+// They are compileOnly: the robot project supplies the real jars through its own vendordeps,
+// so this library never drags a second copy of WPILib/Phoenix/REVLib onto the classpath.
+def wpilibVersion = '2026.2.1'
+def phoenix6Version = '26.3.0'
+def revlibVersion = '2026.0.5'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    withSourcesJar()
+    withJavadocJar()
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://frcmaven.wpi.edu/artifactory/release/' }
+    maven { url 'https://maven.ctr-electronics.com/release/' }
+    maven { url 'https://maven.revrobotics.com/' }
+}
+
+dependencies {
+    compileOnly "edu.wpi.first.wpilibj:wpilibj-java:${wpilibVersion}"
+    compileOnly "edu.wpi.first.wpimath:wpimath-java:${wpilibVersion}"
+    compileOnly "edu.wpi.first.wpiutil:wpiutil-java:${wpilibVersion}"
+    compileOnly "edu.wpi.first.wpiunits:wpiunits-java:${wpilibVersion}"
+    compileOnly "edu.wpi.first.hal:hal-java:${wpilibVersion}"
+    compileOnly "edu.wpi.first.ntcore:ntcore-java:${wpilibVersion}"
+    compileOnly "com.ctre.phoenix6:wpiapi-java:${phoenix6Version}"
+    compileOnly "com.revrobotics.frc:REVLib-java:${revlibVersion}"
+
+    // Tests only touch MotorMath, which has no vendor/HAL dependencies.
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.withType(Javadoc).configureEach {
+    failOnError = false
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'Propulsion'
+            from components.java
+        }
+    }
+}
