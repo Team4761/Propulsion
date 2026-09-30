@@ -1,4 +1,5 @@
 jdk:
   - openjdk17
 install:
-  - ./gradlew clean publishToMavenLocal -x test
+  # JitPack only passes group/version itself when using its default command, so pass them here.
+  - ./gradlew clean publishToMavenLocal -x test -Pgroup=$GROUP -Pversion=$VERSION
