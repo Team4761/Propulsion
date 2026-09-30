@@ -99,8 +99,12 @@ Drop-in except for the package name (`frc.team4761.propulsion.motors`) and `Smar
 
 ## Releasing a new version
 
+The vendordep currently pins commit `10b6aed7cd` (JitPack builds any commit hash). Once the code
+has been reviewed, cut a real release:
+
+
 1. Bump the versions in `build.gradle` (WPILib / Phoenix / REVLib) at the start of each season.
-2. Commit, then tag: `git tag v0.2.0 && git push origin v0.2.0`.
+2. Commit, then create a GitHub release with a tag like `v0.1.0` (or `git tag v0.1.0 && git push origin v0.1.0`).
 3. Open `https://jitpack.io/#Team4761/Propulsion` and click **Get it** on the tag to trigger the
    build (it also builds on first download).
 4. Update `version` in `Propulsion.json` (both the top-level `version` and the dependency
